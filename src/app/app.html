@@ -1,8 +1,16 @@
 <ion-menu [content]="content">
   <ion-content>
     <ion-list>
+      <div class="menu-users">
+          <img src="./assets/logo.png" />
+          <div class="menu-username">
+            MATERIAL MONITORING APP
+          </div>
+      </div>
+    </ion-list>
+    <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <ion-icon name="{{p.icon}}" item-left></ion-icon>{{p.title}}
       </button>
     </ion-list>
   </ion-content>
