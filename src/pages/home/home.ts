@@ -1,22 +1,51 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 
-/*
-  Generated class for the Home page.
+import { StockminPage } from '../stockmin/stockmin';
+import { FindmatnoPage } from '../findmatno/findmatno';
+import { GoodissuePage } from '../goodissue/goodissue';
+import { GoodreceivePage } from '../goodreceive/goodreceive';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  loading: Loading;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private loadingCtrl: LoadingController
+  ) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  openPage(p) {
+    if (p == 'alert') {
+      this.optionPage(StockminPage);
+    } else 
+    if (p == 'find') {
+      this.optionPage(FindmatnoPage);
+    } else 
+    if (p == 'receive') {
+      this.optionPage(GoodreceivePage);
+    } else
+    if (p == 'issue') {
+      this.optionPage(GoodissuePage);
+    }
   }
 
+  optionPage(p) {
+    this.showLoading();
+    setTimeout(() => {
+      this.loading.dismiss();
+      this.navCtrl.setRoot(p);
+    }, 500);
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
+  }
 }

@@ -28,4 +28,19 @@ page-findmatno {
         }
 
     }
+
+    .footer-home-page {
+        position: absolute;
+        bottom: 0;
+        padding: 12px 10px;
+        width: 100%;
+        border-top:1px solid #ccc;
+        background: #f4f4f4;
+        color: #999;
+        text-align: center;
+        
+        span {
+            font-size: 0.8em;
+        }
+    }
 }

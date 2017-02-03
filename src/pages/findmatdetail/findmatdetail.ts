@@ -15,8 +15,6 @@ export class FindmatdetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FindmatdetailPage');
-  }
+  public nopek = this.navParams.get("nopek");
 
 }

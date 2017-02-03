@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, LoadingController, Loading } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
@@ -13,22 +13,23 @@ import { GoodreceivePage } from '../pages/goodreceive/goodreceive';
   templateUrl: 'app.html'
 })
 export class App {
+  loading: Loading;
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = FindmatnoPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, icon: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, private loadingCtrl: LoadingController) {
     this.initializeApp();
 
     this.pages = [
       { title: 'HOME', icon: 'ios-home-outline', component: HomePage },
       { title: 'STOCK ALERT', icon: 'ios-alert-outline', component: StockminPage },
       { title: 'FIND MATERIAL', icon: 'ios-search-outline', component: FindmatnoPage },
-      { title: 'GOOD RECEIVE', icon: 'ios-cloud-download-outline', component: GoodreceivePage },
-      { title: 'GOOD ISSUE', icon: 'ios-cloud-upload-outline', component: GoodissuePage },
-      { title: 'GOOD ISSUE', icon: 'ios-log-out-outline', component: LoginPage }
+      { title: 'GOOD RECEIVE', icon: 'ios-cloud-upload-outline', component: GoodreceivePage },
+      { title: 'GOOD ISSUE', icon: 'ios-cloud-download-outline', component: GoodissuePage },
+      { title: 'LOGOUT', icon: 'ios-log-out-outline', component: LoginPage }
     ];
 
   }
@@ -36,11 +37,22 @@ export class App {
   initializeApp() {
     this.platform.ready().then(() => {
       StatusBar.styleDefault();
-      Splashscreen.hide();
+      Splashscreen.show();
     });
   }
 
   openPage(page) {
-    this.nav.setRoot(page.component);
+    this.showLoading();
+    setTimeout(() => {
+      this.loading.dismiss();
+      this.nav.setRoot(page.component);
+    }, 500);
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, NavParams } from 'ionic-angular';
 
 import { FindmatdetailPage } from '../findmatdetail/findmatdetail';
-import { Material, MaterialService } from '../../providers/material-service';
+import { MaterialService } from '../../providers/material-service';
 
 @Component({
   selector: 'page-findmatno',
@@ -46,7 +46,9 @@ export class FindmatnoPage {
   }
 
   public showDetail() {
-    this.navCtrl.push(FindmatdetailPage);
+    this.navCtrl.push(FindmatdetailPage, {
+      nopek: this.material.matnum
+    });
   }
 
   private showLoading() {
@@ -58,7 +60,7 @@ export class FindmatnoPage {
 
   private showMessage(message: string) {
     let alert = this.alertCtrl.create({
-      title: 'LOGIN FAILED',
+      title: 'FAILED DATA',
       subTitle: message,
       buttons: ['OK']
     });

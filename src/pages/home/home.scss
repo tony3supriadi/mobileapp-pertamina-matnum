@@ -1,3 +1,49 @@
 page-home {
 
+    .banner-home-page {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content-shortcut {
+        padding: 6px;
+
+        .btn-shortcut {
+            width: 100%;
+            border: 1px solid #999;
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+
+            ion-icon {
+                display: block;
+                font-size: 300%;
+                margin-bottom: 10px
+            }
+        }
+
+        .btn-shortcut:hover {
+            color:#FFF;
+            background: #0082CC;
+            font-weight: bold;
+        }
+    }
+
+    .footer-home-page {
+        position: absolute;
+        bottom: 0;
+        padding: 12px 10px;
+        width: 100%;
+        border-top:1px solid #ccc;
+        background: #f4f4f4;
+        color: #999;
+        text-align: center;
+        
+        span {
+            font-size: 0.8em;
+        }
+    }
 }

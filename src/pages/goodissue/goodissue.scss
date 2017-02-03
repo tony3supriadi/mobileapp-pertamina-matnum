@@ -1,3 +1,52 @@
 page-goodissue {
+    .icon-go-search {
+        margin-top:10px;
+        padding-top:28px;
+    }
 
+    .icon-go-search:hover {
+        color:#999;
+    }
+
+    .icon-input {
+        margin-top:10px;
+        padding-top:28px;
+        color: #999;
+    }
+
+    .data-view {
+        width: 90%;
+        margin: 0 auto;
+
+        h3 {
+            font-size: 0.9em;
+            color:#999;
+            padding: 0;
+            margin: 20px 0 5px;
+        }
+
+        p {
+            font-size: 14px;
+            margin: 0;
+            padding: 0 0 10px;
+            text-align: justify;
+            border-bottom: 1px solid #eee;
+        }
+
+    }
+
+    .footer-home-page {
+        position: absolute;
+        bottom: 0;
+        padding: 12px 10px;
+        width: 100%;
+        border-top:1px solid #ccc;
+        background: #f4f4f4;
+        color: #999;
+        text-align: center;
+        
+        span {
+            font-size: 0.8em;
+        }
+    }
 }

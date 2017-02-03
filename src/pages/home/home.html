@@ -7,6 +7,44 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <div class="banner-home-page">
+    <img src="./assets/banner.png" />
+  </div>
 
+  <div class="content-shortcut">
+    <ion-row>
+      <ion-col width-50>
+        <div class="btn-shortcut" (click)="openPage('alert')">
+          <ion-icon name="ios-alert-outline"></ion-icon>
+          <span>STOCK ALERT</span>
+        </div>
+      </ion-col>
+      <ion-col width-50>
+        <div class="btn-shortcut" (click)="openPage('find')">
+          <ion-icon name="ios-search-outline"></ion-icon>
+          <span>FIND MATERIAL</span>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col width-50>
+        <div class="btn-shortcut" (click)="openPage('receive')">
+          <ion-icon name="ios-cloud-upload-outline"></ion-icon>
+          <span>GOOD RECEIVE</span>
+        </div>
+      </ion-col>
+      <ion-col width-50>
+        <div class="btn-shortcut" (click)="openPage('issue')">
+          <ion-icon name="ios-cloud-download-outline"></ion-icon>
+          <span>GOOD ISSUE</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>
+
+<div class="footer-home-page">
+  <span>COPYRIGHT &copy; 2017.</span>
+</div>
