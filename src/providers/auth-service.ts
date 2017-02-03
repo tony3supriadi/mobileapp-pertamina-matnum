@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -28,19 +27,6 @@ export class AuthService {
         observer.next(access);
         observer.complete();
       });
-    }
-  }
-
-  public register(credentials) {
-    if (credentials) {
-      if (credentials.nopek === null || credentials.password === null) {
-        return Observable.throw("Please insert credentials");
-      } else {
-        return Observable.create(observer => {
-          observer.next(true);
-          observer.complete();
-        });
-      }
     }
   }
 

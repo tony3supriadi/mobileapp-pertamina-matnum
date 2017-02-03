@@ -5,6 +5,9 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { StockminPage } from '../pages/stockmin/stockmin';
+import { FindmatnoPage } from '../pages/findmatno/findmatno';
+import { GoodissuePage } from '../pages/goodissue/goodissue';
+import { GoodreceivePage } from '../pages/goodreceive/goodreceive';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,33 +15,32 @@ import { StockminPage } from '../pages/stockmin/stockmin';
 export class App {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = FindmatnoPage;
 
   pages: Array<{title: string, icon: string, component: any}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'HOME', icon: 'ios-home-outline', component: HomePage },
-      { title: 'MATERIAL STOCK', icon: 'ios-cube-outline', component: StockminPage }
+      { title: 'STOCK ALERT', icon: 'ios-alert-outline', component: StockminPage },
+      { title: 'FIND MATERIAL', icon: 'ios-search-outline', component: FindmatnoPage },
+      { title: 'GOOD RECEIVE', icon: 'ios-cloud-download-outline', component: GoodreceivePage },
+      { title: 'GOOD ISSUE', icon: 'ios-cloud-upload-outline', component: GoodissuePage },
+      { title: 'GOOD ISSUE', icon: 'ios-log-out-outline', component: LoginPage }
     ];
 
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
 }

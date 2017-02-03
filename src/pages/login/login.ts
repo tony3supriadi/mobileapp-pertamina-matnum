@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, NavParams } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
+
 import { PasswordPage } from '../password/password';
 import { HomePage } from '../home/home';
 
+import { AuthService } from '../../providers/auth-service';
 
 @Component({
   selector: 'page-login',
@@ -14,7 +15,13 @@ export class LoginPage {
   loading: Loading;
   registerCredentials = {nopek: '', password: ''};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private auth: AuthService, 
+    private alertCtrl: AlertController, 
+    private loadingCtrl: LoadingController
+  ) {}
 
   public createAccount() {
     this.navCtrl.push(PasswordPage);
@@ -27,9 +34,12 @@ export class LoginPage {
         setTimeout(() => {
           this.loading.dismiss();
           this.navCtrl.setRoot(HomePage);
-        });
+        }, 2000);
       } else {
-        this.showError("Nopek or Password is wrong!!");
+        setTimeout(() => {
+          this.loading.dismiss();
+          this.showError("Nopek or Password is wrong!!");
+        }, 2000);
       }
     });
   }
@@ -42,10 +52,6 @@ export class LoginPage {
   }
 
   private showError(message: string) {
-    setTimeout(() => {
-      this.loading.dismiss();
-    });
-
     let alert = this.alertCtrl.create({
       title: 'LOGIN FAILED',
       subTitle: message,

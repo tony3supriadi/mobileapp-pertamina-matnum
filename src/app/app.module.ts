@@ -6,8 +6,13 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { PasswordPage } from '../pages/password/password';
 import { StockminPage } from '../pages/stockmin/stockmin';
+import { FindmatnoPage } from '../pages/findmatno/findmatno';
+import { FindmatdetailPage } from '../pages/findmatdetail/findmatdetail';
+import { GoodissuePage } from '../pages/goodissue/goodissue';
+import { GoodreceivePage } from '../pages/goodreceive/goodreceive';
 
 import { AuthService } from '../providers/auth-service';
+import { MaterialService } from '../providers/material-service';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,11 @@ import { AuthService } from '../providers/auth-service';
     HomePage,
     LoginPage,
     PasswordPage,
-    StockminPage
+    StockminPage,
+    FindmatnoPage,
+    FindmatdetailPage,
+    GoodissuePage,
+    GoodreceivePage
   ],
   imports: [
     IonicModule.forRoot(App)
@@ -26,8 +35,16 @@ import { AuthService } from '../providers/auth-service';
     HomePage,
     LoginPage,
     PasswordPage,
-    StockminPage
+    StockminPage,
+    FindmatnoPage,
+    FindmatdetailPage,
+    GoodissuePage,
+    GoodreceivePage
   ],
-  providers: [AuthService, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    AuthService, 
+    MaterialService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ]
 })
 export class AppModule {}

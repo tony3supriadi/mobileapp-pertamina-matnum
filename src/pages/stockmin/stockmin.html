@@ -1,18 +1,30 @@
-<!--
-  Generated template for the Stockmin page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>stockmin</ion-title>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>STOCK ALERT</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+  <div class="searchbar-box">
+    <ion-searchbar></ion-searchbar>
+  </div>
+  <ion-list>
+    <ion-item>
+      <h2>MATERIAL LIST 1</h2>
+      <p>MIN:3 &nbsp; &nbsp; STOCK:5</p>
+      <ion-icon name="ios-arrow-dropright" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <h2>MATERIAL LIST 2</h2>
+      <p>MIN:3 &nbsp; &nbsp; STOCK:5</p>
+      <ion-icon name="ios-arrow-dropright" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+      <h2>MATERIAL LIST 3</h2>
+      <p>MIN:3 &nbsp; &nbsp; STOCK:5</p>
+      <ion-icon name="ios-arrow-dropright" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
 </ion-content>
