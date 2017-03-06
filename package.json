@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "material-monitoring-pertamina",
+  "author": "Pertamina RU4 Cilacap",
+  "homepage": "http://pertamina.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
