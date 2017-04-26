@@ -1,0 +1,56 @@
+page-piecart {
+    table {
+        td {
+            padding: 3px;
+        }
+
+        .length {
+            width:15px;
+            height: 15px;
+            display: block;
+            float: left;
+            margin: 0 5px;
+        }
+
+        .danger {
+            background-color: #ff8ba4;
+        }
+
+        .warning {
+            background-color: #ffdc85;
+        }
+
+        .secure {
+            background-color: #69c3ff;
+        }
+    }
+
+    .keterangan {
+        font-size: 0.9em;
+        background: #fdf6e6;
+        padding: 20px;
+        margin: 0 auto;
+        border-radius: 10px;
+        border: 1px solid #ffdc85;
+
+        p {
+            padding: 0;
+            margin: 0
+        }
+    }
+    
+    .footer-home-page {
+        position: absolute;
+        bottom: 0;
+        padding: 12px 10px;
+        width: 100%;
+        border-top:1px solid #ccc;
+        background: #f4f4f4;
+        color: #999;
+        text-align: center;
+        
+        span {
+            font-size: 0.8em;
+        }
+    }
+}

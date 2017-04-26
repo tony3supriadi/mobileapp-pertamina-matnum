@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>STOCK ALERT : {{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="searchbar-box">
+    <ion-searchbar [(ngModel)]="searchMaterial" (ionInput)="showingMaterial()"></ion-searchbar>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let material of getDataMaterial" (click)="showMaterial(material.matno)">
+      <h2>NUM:{{ material.matno.toUpperCase() }}</h2>
+      <p>MIN:{{ material.stok_min }} &nbsp; &nbsp; STOCK:{{ material.stok }}</p>
+      <ion-icon name="ios-arrow-dropright" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<div class="footer-home-page">
+  <span>COPYRIGHT &copy; 2017.</span>
+</div>

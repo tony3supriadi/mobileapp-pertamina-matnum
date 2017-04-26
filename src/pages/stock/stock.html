@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>STOCK LOCATION</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>
+      <h3><b>NUM : {{ nopek }}</b></h3>
+      <small>STOCK ON HAND : {{ onHand }} {{ uan }}</small>
+    </ion-label>
+  </ion-item>
+
+  <ion-item *ngFor="let val of stocks">
+    <ion-label>
+      <ion-row>
+        <ion-col><small>{{ val.store }}</small></ion-col>
+        <ion-col><small>: {{ val.stok }} {{ uan }}</small></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-label>
+  </ion-item>
+</ion-content>

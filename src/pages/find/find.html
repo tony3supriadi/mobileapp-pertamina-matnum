@@ -3,9 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>GOOD RECEIVE</ion-title>
+    <ion-title>FIND MATERIAL</ion-title>
   </ion-navbar>
 </ion-header>
+
 
 <ion-content>
   <ion-fab top right edge>
@@ -18,7 +19,7 @@
         <ion-list>
           <ion-item>
             <ion-label floating>MATERIAL NUMBER</ion-label>
-            <ion-input type="text" name="matnum" [(ngModel)]="registerCredentials.matnum" required></ion-input>
+            <ion-input type="text" name="matnum" [(ngModel)]="num" required></ion-input>
             <ion-icon (click)="findShowMaterial()" class="icon-go-search" ios="ios-arrow-forward" md="md-arrow-forward" item-right></ion-icon>
           </ion-item>
         </ion-list>
@@ -30,40 +31,39 @@
     <div class="data-content">
       <ion-row class="data-list">
         <ion-col>
+          <h3>PLANT</h3>
+          <p>{{material.plant}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="data-list">
+        <ion-col>
           <h3>DESKRIPSI</h3>
           <p>{{material.deskripsi}}</p>
         </ion-col>
       </ion-row>
       <ion-row class="data-list">
         <ion-col>
-          <h3>STOK</h3>
-          <p>{{material.stok}} {{material.unit}}</p>
+          <h3>STOK ON HAND</h3>
+          <p>
+            {{material.stok}} {{material.unit}}
+            
+            <button ion-button small outline (click)="stockOpen()">
+              <ion-icon ios="ios-search" md="md-search"></ion-icon>
+            </button>
+          </p>
+        </ion-col>        
+        <ion-col>
+          <h3>STOK MININUM</h3>
+          <p>{{material.minimum}} {{material.unit}}</p>
         </ion-col>
       </ion-row>
-      
       <ion-row class="data-list">
         <ion-col>
-          <ion-list>
-            <ion-item>
-              <ion-label floating>QTY GOOD RECEIVE</ion-label>
-              <ion-input type="text" name="qty" required></ion-input>
-              <ion-icon name="ios-create-outline" item-right class="icon-input"></ion-icon>
-            </ion-item>
-          </ion-list>
+          <h3>MPN</h3>
+          <p>{{material.mpn}}</p>
         </ion-col>
       </ion-row>
-      <ion-row class="data-list">
-        <ion-col>
-          <ion-list>
-            <ion-item>
-              <ion-label floating>REF NUMBER</ion-label>
-              <ion-input type="text" name="refnumber" required></ion-input>
-              <ion-icon name="ios-create-outline" item-right class="icon-input"></ion-icon>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-      </ion-row>
-      <button ion-button block (click)="submit()">SUBMIT</button>
+      <button ion-button block (click)="PoText()">PO TEXT</button>
     </div>
   </div>
   

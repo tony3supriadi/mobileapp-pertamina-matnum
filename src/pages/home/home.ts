@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 
-import { StockminPage } from '../stockmin/stockmin';
-import { FindmatnoPage } from '../findmatno/findmatno';
-import { GoodissuePage } from '../goodissue/goodissue';
-import { GoodreceivePage } from '../goodreceive/goodreceive';
+import { PiecartPage } from '../piecart/piecart';
+import { FindPage } from '../find/find';
+import { IssuePage } from '../issue/issue';
+import { ReceivePage } from '../receive/receive';
+
+import { MaterialService } from '../../providers/material-service';
 
 @Component({
   selector: 'page-home',
@@ -12,25 +14,27 @@ import { GoodreceivePage } from '../goodreceive/goodreceive';
 })
 export class HomePage {
   loading: Loading;
+  getData: any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    public materialService: MaterialService
   ) {}
 
   openPage(p) {
     if (p == 'alert') {
-      this.optionPage(StockminPage);
+      this.optionPage(PiecartPage);
     } else 
     if (p == 'find') {
-      this.optionPage(FindmatnoPage);
+      this.optionPage(FindPage);
     } else 
     if (p == 'receive') {
-      this.optionPage(GoodreceivePage);
+      this.optionPage(ReceivePage);
     } else
     if (p == 'issue') {
-      this.optionPage(GoodissuePage);
+      this.optionPage(IssuePage);
     }
   }
 

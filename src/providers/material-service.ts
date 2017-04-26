@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+
+import { BaseUrl } from './base-url';
 
 export class Material {
   public matnum: string;
@@ -23,20 +25,17 @@ export class Material {
 export class MaterialService {
   currentMaterial : Material;
 
-  public show() {
+  constructor(public http: Http, public _baseUrl: BaseUrl) {
+  }
 
+  public show(title) {
+    return this.http.get(this._baseUrl.getUrl() + '/show?title=' + title + '&X-API-KEY=' + this._baseUrl.getApi())
+        .map(res => res.json());
   }
   
-  public find(credentials) {
-    if (credentials.matnum === null) {
-      return Observable.throw("Please insert credentials");
-    } else {
-      return Observable.create(observer => {
-        let access = (credentials.matnum === "123");
-        observer.next(access);
-        observer.complete();
-      });
-    }
+  public find(num) {
+    return this.http.get(this._baseUrl.getUrl() + '/find/' + num + '?X-API-KEY=' + this._baseUrl.getApi())
+        .map(res => res.json());
   }
 
 }

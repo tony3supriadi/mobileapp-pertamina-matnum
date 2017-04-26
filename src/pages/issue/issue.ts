@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, Loading, } from 'ionic-angular';
 
-import { FindmatdetailPage } from '../findmatdetail/findmatdetail';
+import { PotextPage } from '../potext/potext';
 import { MaterialService } from '../../providers/material-service';
 
 @Component({
-  selector: 'page-findmatno',
-  templateUrl: 'findmatno.html'
+  selector: 'page-issue',
+  templateUrl: 'issue.html'
 })
-export class FindmatnoPage {
+export class IssuePage {
   showDataView = true;
   loading: Loading;
   material = { matnum: '', deskripsi: '', stok: 0, unit: '', mpn: '' };
@@ -16,7 +16,7 @@ export class FindmatnoPage {
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navParams: NavParams,
     private matService: MaterialService, 
     private alertCtrl: AlertController, 
     private loadingCtrl: LoadingController
@@ -43,10 +43,20 @@ export class FindmatnoPage {
         }, 2000);
       }
     });
+
+  }
+
+  public submit() {
+    let alert = this.alertCtrl.create({
+      title: 'SUBMIT DATA',
+      subTitle: 'Are You Sure?',
+      buttons: ['YES', 'CANCEL']
+    });
+    alert.present(prompt);
   }
 
   public showDetail() {
-    this.navCtrl.push(FindmatdetailPage, {
+    this.navCtrl.push(PotextPage, {
       nopek: this.material.matnum
     });
   }

@@ -4,10 +4,10 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { StockminPage } from '../pages/stockmin/stockmin';
-import { FindmatnoPage } from '../pages/findmatno/findmatno';
-import { GoodissuePage } from '../pages/goodissue/goodissue';
-import { GoodreceivePage } from '../pages/goodreceive/goodreceive';
+import { PiecartPage } from '../pages/piecart/piecart';
+import { FindPage } from '../pages/find/find';
+import { IssuePage } from '../pages/issue/issue';
+import { ReceivePage } from '../pages/receive/receive';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,10 +25,10 @@ export class App {
 
     this.pages = [
       { title: 'HOME', icon: 'ios-home-outline', component: HomePage },
-      { title: 'STOCK ALERT', icon: 'ios-alert-outline', component: StockminPage },
-      { title: 'FIND MATERIAL', icon: 'ios-search-outline', component: FindmatnoPage },
-      { title: 'GOOD RECEIVE', icon: 'ios-cloud-upload-outline', component: GoodreceivePage },
-      { title: 'GOOD ISSUE', icon: 'ios-cloud-download-outline', component: GoodissuePage },
+      { title: 'STOCK ALERT', icon: 'ios-alert-outline', component: PiecartPage },
+      { title: 'FIND MATERIAL', icon: 'ios-search-outline', component: FindPage },
+      { title: 'GOOD RECEIVE', icon: 'ios-cloud-upload-outline', component: ReceivePage },
+      { title: 'GOOD ISSUE', icon: 'ios-cloud-download-outline', component: IssuePage },
       { title: 'LOGOUT', icon: 'ios-log-out-outline', component: LoginPage }
     ];
 

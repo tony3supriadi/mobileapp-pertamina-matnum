@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>STOCK ALERT : PIE CART</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="display: block">
+    <canvas baseChart
+            [data]="[dangerLength, secureLength, warningLength]"
+            [labels]="['OH=0', 'OH>=SA', 'OH<SA']"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [legend]="pieChartLegend"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <br />
+  <table width="100%">
+    <tr>
+      <td rowspan="4" align="right" valign="top" width="45%">
+        <b>PERCENT : </b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="length danger">&nbsp;</span>
+        {{ ((dangerLength / (dangerLength + secureLength + warningLength)) * 100).toFixed() }}%
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="length secure">&nbsp;</span>
+        {{ ((secureLength / (dangerLength + secureLength + warningLength)) * 100).toFixed() }}%
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="length warning">&nbsp;</span>
+        {{ ((warningLength / (dangerLength + secureLength + warningLength)) * 100).toFixed() }}%
+      </td>
+    </tr>
+  </table>
+  
+  <br /><hr /><br />
+  <ion-row>
+    <ion-col class="keterangan">
+      <table>
+        <tr>
+          <td colspan="2">
+            <b>DESCRIPTION</b>
+          </td>
+        </tr>
+        <tr>
+          <td>OH</td>
+          <td>: QTY ON HAND</td>
+        </tr>
+        <tr>
+          <td>SA</td>
+          <td>: QTY SAFETY</td>
+        </tr>
+      </table>
+    </ion-col>
+  </ion-row>
+</ion-content>

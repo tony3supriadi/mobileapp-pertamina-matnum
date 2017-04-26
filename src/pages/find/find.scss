@@ -1,4 +1,4 @@
-page-findmatno {
+page-find {
     .icon-go-search {
         margin-top:10px;
         padding-top:28px;
@@ -25,6 +25,14 @@ page-findmatno {
             padding: 0 0 10px;
             text-align: justify;
             border-bottom: 1px solid #eee;
+
+            button {
+                float: right;
+                height: 28px;
+                width: 28px;
+                padding: 0;
+                margin: -10px 0 0;
+            }
         }
 
     }

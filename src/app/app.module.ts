@@ -1,18 +1,24 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { ChartsModule } from 'ng2-charts';
+import "chart.js/src/chart";
 
 import { App } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { PasswordPage } from '../pages/password/password';
-import { StockminPage } from '../pages/stockmin/stockmin';
-import { FindmatnoPage } from '../pages/findmatno/findmatno';
-import { FindmatdetailPage } from '../pages/findmatdetail/findmatdetail';
-import { GoodissuePage } from '../pages/goodissue/goodissue';
-import { GoodreceivePage } from '../pages/goodreceive/goodreceive';
+import { AlertPage } from '../pages/alert/alert';
+import { PiecartPage } from '../pages/piecart/piecart';
+import { FindPage } from '../pages/find/find';
+import { StockPage } from '../pages/stock/stock';
+import { PotextPage } from '../pages/potext/potext';
+import { IssuePage } from '../pages/issue/issue';
+import { ReceivePage } from '../pages/receive/receive';
 
 import { AuthService } from '../providers/auth-service';
 import { MaterialService } from '../providers/material-service';
+import { StockService } from '../providers/stock-service';
+import { BaseUrl } from '../providers/base-url';
 
 @NgModule({
   declarations: [
@@ -20,13 +26,16 @@ import { MaterialService } from '../providers/material-service';
     HomePage,
     LoginPage,
     PasswordPage,
-    StockminPage,
-    FindmatnoPage,
-    FindmatdetailPage,
-    GoodissuePage,
-    GoodreceivePage
+    AlertPage,
+    PiecartPage,
+    FindPage,
+    StockPage,
+    PotextPage,
+    IssuePage,
+    ReceivePage
   ],
   imports: [
+    ChartsModule,
     IonicModule.forRoot(App)
   ],
   bootstrap: [IonicApp],
@@ -35,15 +44,19 @@ import { MaterialService } from '../providers/material-service';
     HomePage,
     LoginPage,
     PasswordPage,
-    StockminPage,
-    FindmatnoPage,
-    FindmatdetailPage,
-    GoodissuePage,
-    GoodreceivePage
+    AlertPage,
+    PiecartPage,
+    FindPage,
+    StockPage,
+    PotextPage,
+    IssuePage,
+    ReceivePage
   ],
   providers: [
     AuthService, 
     MaterialService,
+    BaseUrl,
+    StockService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

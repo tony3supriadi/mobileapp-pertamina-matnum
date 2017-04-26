@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, LoadingController, Loading, } from 'ionic-angular';
 
-import { FindmatdetailPage } from '../findmatdetail/findmatdetail';
+import { PotextPage } from '../potext/potext';
 import { MaterialService } from '../../providers/material-service';
 
 @Component({
-  selector: 'page-goodreceive',
-  templateUrl: 'goodreceive.html'
+  selector: 'page-receive',
+  templateUrl: 'receive.html'
 })
-export class GoodreceivePage {
+export class ReceivePage {
   showDataView = true;
   loading: Loading;
   material = { matnum: '', deskripsi: '', stok: 0, unit: '', mpn: '' };
-  registerCredentials = { matnum: '' };
+  matnum: string = '';
 
   constructor(
     public navCtrl: NavController, 
@@ -22,27 +22,28 @@ export class GoodreceivePage {
     private loadingCtrl: LoadingController
   ) {}
 
-  public findShowMaterial() {
+  findShowMaterial() {
     this.showLoading();
-    this.matService.find(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {
-        setTimeout(() => {
-          this.loading.dismiss();
-          this.material.matnum = 'H630500118';
-          this.material.deskripsi = 'SOCKOLET:PIPE,FORGED,A182,3000#,2INX1INSOCKOLET:PIPE,FORGED,A182,3000#,2INX1IN';
-          this.material.stok = 4;
-          this.material.unit = 'PCS';
-          this.material.mpn = 'M001';
+    this.matService.find(this.matnum)
+      .subscribe(data => {
+        if (data.status) {
+          setTimeout(() => {
+            this.loading.dismiss();
+            this.material.matnum = data.message.matno.toUpperCase();
+            this.material.deskripsi = data.message.short_desc.toUpperCase();
+            this.material.stok = data.message.qty_onhand;
+            this.material.unit = data.message.uan.toUpperCase();
+            this.material.mpn = data.message.mpn.toUpperCase();
 
-          this.showDataView = false;
-        }, 2000);
-      } else {
-        setTimeout(() => {
-          this.loading.dismiss();
-          this.showMessage('MATERIAL NOT FOUND');
-        }, 2000);
-      }
-    });
+            this.showDataView = false;
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            this.loading.dismiss();
+            this.showMessage(data.message);
+          }, 2000);
+        }
+      });
 
   }
 
@@ -56,7 +57,7 @@ export class GoodreceivePage {
   }
 
   public showDetail() {
-    this.navCtrl.push(FindmatdetailPage, {
+    this.navCtrl.push(PotextPage, {
       nopek: this.material.matnum
     });
   }
